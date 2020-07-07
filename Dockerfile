@@ -21,9 +21,11 @@ RUN curl -fsSL https://download.docker.com/linux/$(. /etc/os-release; echo "$ID"
 RUN apt-get update && \
     apt-get -y install docker-ce
     
-RUN usermod -aG docker root
+RUN curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/    local/bin/docker-compose
+RUN chmod +x /usr/local/bin/docker-compose
+RUN groupadd -g 999 docker
+RUN usermod -aG staff,docker jenkins
 
-RUN curl -L "https://github.com/docker/compose/releases/download/1.26.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose && \
-    chmod +x /usr/local/bin/docker-compose
+USER jenkins
 
 EXPOSE 8080
