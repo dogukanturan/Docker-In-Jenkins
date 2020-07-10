@@ -10,10 +10,11 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-      - jenkins-docker-certs:/certs/client
+      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
       - jenkins-data:/var/jenkins_home
-    container_name: jenkins
+      - jenkins-docker-certs:/certs/client
+    container_name: jenkins-on-docker
     
 volumes:
-  jenkins-docker-certs:
   jenkins-data:
+  jenkins-docker-certs:
