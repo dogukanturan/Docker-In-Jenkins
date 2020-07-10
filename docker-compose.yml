@@ -9,14 +9,11 @@ services:
       - 50000:50000
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
       - jenkins-docker-certs:/certs/client
       - jenkins-data:/var/jenkins_home
-    networks:
-      - jenkins
     container_name: jenkins
-
+    
 volumes:
   jenkins-docker-certs:
   jenkins-data:
-networks:
-  jenkins:
