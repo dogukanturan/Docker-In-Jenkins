@@ -12,7 +12,9 @@ Belirtilen docker container'ının çalıştırılması için gerekenler;
 - Docker Compose
 
 
-## Kullanım
+## Kullanım | TL;DR 
+
+    $ docker run -d --name jenkins-on-docker -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /usr/local/bin/docker-compose:/usr/local/bin/docker-compose -v jenkins-data:/var/jenkins_home -v jenkins-docker-certs:/certs/client dturan/jenkins-on-docker:latest
 
 Jenkins'i ayağa kaldırmak için projenin bulunduğu adrese terminal ile bağlanıp, aşağıdaki docker komutunun çalıştırılması gerekmektedir.
 
