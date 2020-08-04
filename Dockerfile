@@ -1,6 +1,6 @@
 FROM  jenkins/jenkins:lts
 
-MAINTAINER Dogukan Turan <turandogu@outlook.com>
+LABEL MAINTAINER Dogukan Turan <turandogu@outlook.com>
 
 USER root
 
