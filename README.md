@@ -12,9 +12,11 @@ Docker-compose file that installs jenkins running on docker and allows us to con
     $ docker run -d --name jenkins-on-docker -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /usr/local/bin/docker-compose:/usr/local/bin/docker-compose -v jenkins-data:/var/jenkins_home -v jenkins-docker-certs:/certs/client dturan/jenkins-on-docker:latest
 
 To run the container, you need to enter the command below into your terminal.
+
     $ docker-compose up -d
     
 If the Jenkins image is not on your system, it may take some time to run the container for the first time. Then, you can check whether the container is up or not with the following command in the same directory.
+
     $ docker-compose ps
 
 ## Dockerfile
