@@ -1,27 +1,20 @@
 # Docker in Jenkins (in Docker)
 
 
-Jenkins'i Docker araclığı ile container olarak çalıştıran ve çalıştığı docker sunucusuna, docker socket ve compose'u bağlayan docker-compose file.  
+Docker-compose file that installs jenkins running on docker and allows us to connect to docker with those jenkins via socket.
 
-
-## Gereksinimler
-
-Belirtilen docker container'ının çalıştırılması için gerekenler;
-
-- Docker
+## Prerequisites
+- Docker 
 - Docker Compose
 
-
-## Kullanım | TL;DR 
+## Usage | TL;DR 
 
     $ docker run -d --name jenkins-on-docker -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /usr/local/bin/docker-compose:/usr/local/bin/docker-compose -v jenkins-data:/var/jenkins_home -v jenkins-docker-certs:/certs/client dturan/jenkins-on-docker:latest
 
-Jenkins'i ayağa kaldırmak için projenin bulunduğu adrese terminal ile bağlanıp, aşağıdaki docker komutunun çalıştırılması gerekmektedir.
-
+To run the container, you need to enter the command below into your terminal.
     $ docker-compose up -d
     
-Jenkins image sisteminizde yoksa ilk başlatmada biraz zaman alabilir daha sonra container'ın ayakta olup olmadığını yine aynı dizinde aşağıdaki komut ile kontrol edebilirsiniz.
-
+If the Jenkins image is not on your system, it may take some time to run the container for the first time. Then, you can check whether the container is up or not with the following command in the same directory.
     $ docker-compose ps
 
 ## Dockerfile
