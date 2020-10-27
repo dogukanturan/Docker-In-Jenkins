@@ -1,0 +1,20 @@
+version: '3.8'
+services:
+  jenkins:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+      - 50000:50000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
+      - jenkins-data:/var/jenkins_home
+      - jenkins-docker-certs:/certs/client
+    container_name: jenkins-on-docker
+    
+volumes:
+  jenkins-data:
+  jenkins-docker-certs:
