@@ -1,0 +1,23 @@
+name: Docker In Jenkins CI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Docker Login
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: |
+          docker login -u DOCKER_USERNAME -P DOCKER_PASSWORD
+          
+      - name: Docker Build
+        run: |
+          docker build -t dturan/jenkins-on-docker ./Jenkins     
+
+      - name: Docker Push
+        run: |
+          docker push dturan/jenkins-on-docker:latest
