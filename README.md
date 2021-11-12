@@ -1,4 +1,4 @@
-# Docker in Jenkins (in Docker)
+# Docker in Jenkins (DINJ)
 
 
 Docker-compose file that installs jenkins running on docker and allows us to connect to docker with those jenkins via socket.
