@@ -15,8 +15,8 @@ jobs:
       - uses: actions/checkout@v2
       - name: Docker Build
         run: |
-          docker build -t dturan/jenkins-on-docker ./Jenkins     
+          docker build -t dturan/jenkins-in-docker ./Jenkins
 
       - name: Docker Push
         run: |
-          docker push dturan/jenkins-on-docker:latest
+          docker push dturan/jenkins-in-docker:latest
