@@ -9,7 +9,7 @@ Docker-compose file that installs jenkins running on docker and allows us to con
 
 ## Usage | TL;DR 
 
-    $ docker run -d --name jenkins-on-docker -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /usr/local/bin/docker-compose:/usr/local/bin/docker-compose -v jenkins-data:/var/jenkins_home -v jenkins-docker-certs:/certs/client dturan/jenkins-on-docker:latest
+    $ docker run -d --name jenkins-in-docker -p 8080:8080 -p 50000:50000 -v /var/run/docker.sock:/var/run/docker.sock -v /usr/bin/docker:/usr/bin/docker -v /usr/local/bin/docker-compose:/usr/local/bin/docker-compose -v jenkins-data:/var/jenkins_home -v jenkins-docker-certs:/certs/client dturan/jenkins-on-docker:latest
 
 To run the container, you need to enter the command below into your terminal.
 
@@ -48,7 +48,7 @@ If the Jenkins image is not on your system, it may take some time to run the con
           - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
           - jenkins-data:/var/jenkins_home
           - jenkins-docker-certs:/certs/client
-        container_name: jenkins-on-docker
+        container_name: jenkins-in-docker
     volumes:
       jenkins-data:
       jenkins-docker-certs:
